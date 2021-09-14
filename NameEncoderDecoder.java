@@ -1,27 +1,24 @@
-class NameEncoderDecoder {
-  public String encode(String name) {
-    return "NOTFORYOU" +  name
-    .replace("e", "1")
-    .replace("u", "2")
-    .replace("i", "3")
-    .replace("o", "4")
-    .replace("a", "5") + "YESNOTFORYOU";
-  }
-  public String decode(String name) {
-    return name
-    .replace("YESNOTFORYOU", "")
-    .replace("NOTFORYOU", "")
-    .replace("1", "e")
-    .replace("2", "u")
-    .replace("3", "i")
-    .replace("4", "o")
-    .replace("5", "a");
-  }
-  public static void main(String[] args) {
-        NameEncoderDecoder names = new NameEncoderDecoder();
-        String encode = names.encode("Crab");
-        System.out.println("names.encode (\"Crab\") = " + encode);
-            String decode = names.decode("NOTFORYOUCr5bYESNOTFORYOU");
-        System.out.println("names.decode (\"NOTFORYOUCr5bYESNOTFORYOU\") = " + decode);
-  }
+public class NameEncoderDecoder{
+
+public String encode(String name){
+
+ String str1 = name.replaceAll("e","1").replaceAll("u","2").replaceAll("i","3").replaceAll("o","4")
+ .replaceAll("a","5");
+  
+ return "NOTFORYOU"+str1+"YESNOTFORYOU";
+}
+
+ public String decode(String name){
+ 
+   return name.replaceAll("1","e")
+     .replaceAll("2","u")
+     .replaceAll("3","i")
+     .replaceAll("4","o")
+     .replaceAll("5","a")
+   .replaceFirst("NOTFORYOU","")
+              .replaceFirst("YESNOTFORYOU","");
+ 
+ }
+  
+
 }
